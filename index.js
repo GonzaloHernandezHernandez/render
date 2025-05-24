@@ -18,7 +18,6 @@ const questionsRouter = require('./routes/questions');
 app.use('/api/questions', questionsRouter);
 
 // Puerto
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en ${PORT}`);
 });
