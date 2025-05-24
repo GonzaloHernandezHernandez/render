@@ -15,7 +15,7 @@ questionsApi(app);
 // Servir frontend Angular compilado
 app.use(express.static(path.join(__dirname, 'dist/tu-app')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/pasaletras/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/pasaletras/browser/index.html'));
 });
 
 // Iniciar servidor
