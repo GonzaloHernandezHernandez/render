@@ -12,13 +12,16 @@ app.use(express.urlencoded({ extended: true }));
 // API
 questionsApi(app);
 
-// Servir frontend Angular compilado
-app.use(express.static(path.join(__dirname, 'dist/pasaletras')));
+// Servir frontend Angular compilado desde 'dist/pasaletras/browser'
+const angularDistPath = path.join(__dirname, 'dist/pasaletras/browser');
+app.use(express.static(angularDistPath));
+
+// Redirigir cualquier otra ruta al index.html de Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/pasaletras/browser/index.html'));
+  res.sendFile(path.join(angularDistPath, 'index.html'));
 });
 
 // Iniciar servidor
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Servidor escuchando en ${PORT}`);
 });
