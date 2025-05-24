@@ -3,8 +3,8 @@ const QuestionService = require('../services/questionService')
 
 function questionsApi(app) {
     const router = express.Router()
-   app.get('/', (req, res) => {
-  res.send('¡Servidor funcionando correctamente!');
+    app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
     app.use('/questions', router)
 
