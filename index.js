@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 questionsApi(app);
 
 // Servir frontend Angular compilado
-app.use(express.static(path.join(__dirname, 'dist/tu-app')));
+app.use(express.static(path.join(__dirname, 'dist/tu-pasaletras')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/pasaletras/browser/index.html'));
 });
