@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const questionsApi = require('./routes/questions');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
@@ -26,3 +26,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en ${PORT}`);
 });
+
