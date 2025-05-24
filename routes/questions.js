@@ -3,11 +3,13 @@ const QuestionService = require('../services/questionService')
 
 function questionsApi(app) {
     const router = express.Router()
-    app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-    app.use('/questions', router)
+    // 🟢 Servir archivos Angular compilados
+app.use(express.static(path.join(__dirname, 'dist/tu-app')));
 
+// 🟢 Redirigir todas las rutas Angular al index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/tu-app/index.html'));
+});
     const questionService = new QuestionService()
 
     router.get('/', async (req, res, next) => {
