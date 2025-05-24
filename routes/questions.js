@@ -3,6 +3,9 @@ const QuestionService = require('../services/questionService')
 
 function questionsApi(app) {
     const router = express.Router()
+   app.get('/', (req, res) => {
+  res.send('¡Servidor funcionando correctamente!');
+});
     app.use('/questions', router)
 
     const questionService = new QuestionService()
