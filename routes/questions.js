@@ -1,7 +1,7 @@
 const express = require('express')
 const QuestionService = require('../services/questionService')
 
-function questionsApi(app) {
+function questionsApi(app,db) {
     const router = express.Router()
     app.use('/questions', router)
 
