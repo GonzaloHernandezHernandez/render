@@ -5,7 +5,7 @@ function questionsApi(app) {
     const router = express.Router()
     app.use('/questions', router)
 
-    const questionService = new QuestionService()
+    const questionService = new QuestionService(db)
 
     router.get('/', async (req, res, next) => {
         try {
