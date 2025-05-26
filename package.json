@@ -19,5 +19,8 @@
     "url": "https://github.com/GonzaloHernandezHernandez/render/issues"
   },
   "homepage": "https://github.com/GonzaloHernandezHernandez/render#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
