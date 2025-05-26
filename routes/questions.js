@@ -1,11 +1,11 @@
 const express = require('express')
 const QuestionService = require('../services/questionService')
 
-function questionsApi(app) {
+function questionsApi(app,db) {
     const router = express.Router()
     app.use('/questions', router)
 
-    const questionService = new QuestionService()
+    const questionService = new QuestionService(db)
 
     router.get('/', async (req, res, next) => {
         try {
@@ -23,7 +23,7 @@ function questionsApi(app) {
 
     router.get('/:id', async (req, res, next) => {
         try {
-            const id = req.params;
+            const id = req.params.id;
             const question = await questionService.getQuestionById(id);
 
             if (!question) {
