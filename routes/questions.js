@@ -63,7 +63,7 @@ function questionsApi(app,db) {
 
     router.put('/:id', async (req, res, next) => {
         try{
-            const id = req.params
+            const id = req.params.id
             const {question, image, correctAnswer, incorrectAnswers} = req.body
             const updatedQuestion = {question, image, correctAnswer, incorrectAnswers}
             const resultQuestion = await questionService.updateQuestion(id, updatedQuestion)
@@ -89,7 +89,7 @@ function questionsApi(app,db) {
 
     router.delete('/:id', async (req, res, next) => {
         try{
-            const id = req.params
+            const id = req.params.id
             const result = await questionService.deleteQuestion(id)
 
             if (result) {
