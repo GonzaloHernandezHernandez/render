@@ -1,11 +1,11 @@
 const express = require('express')
 const QuestionService = require('../services/questionService')
 
-function questionsApi(app,db) {
+function questionsApi(app) {
     const router = express.Router()
     app.use('/questions', router)
 
-    const questionService = new QuestionService(db)
+    const questionService = new QuestionService()
 
     router.get('/', async (req, res, next) => {
         try {
